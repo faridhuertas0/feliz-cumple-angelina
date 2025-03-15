@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Angi Te Amo!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Fondo de pantalla con la imagen ajustada */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: url(IMG_2072.png) no-repeat center center fixed;
+            background-size: cover;
+            padding: 20px;
+            color: #ffccff; /* Color suave que combina con el fondo */
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Texto principal */
+        h1 {
+            font-size: 100px; /* Más grande */
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Texto del mensaje */
+        .message {
+            font-size: 36px; /* Más grande */
+            max-width: 90%;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Animación de entrada del texto */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Corazones animados */
+        .heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: red;
+            transform: rotate(-45deg);
+            animation: floatHearts 5s infinite;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart::before { top: -12px; left: 0; }
+        .heart::after { left: 12px; top: 0; }
+
+        /* Movimiento de los corazones */
+        @keyframes floatHearts {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="bg-music" autoplay loop muted>
+        <source src="Amor.mp3" type="audio/mp3"> 
+    </audio>
+
+    <!-- Texto principal -->
+    <div class="container">
+        <h1>¡Angi Te Amo!</h1>
+        <p class="message">
+            Angi, feliz cumpleaños. Estoy muy feliz de estar en tu vida ya por casi 2 años.  
+            En estos años me demostraste que eres una gran persona,  
+            que siempre das lo mejor de ti en cada cosa que hagas.  
+            Te amo como no imaginas y siempre trataré de hacerte muy feliz, mi Angi.  
+            También te quería pedir perdón por mis acciones, ya que te amo mucho  
+            y no te quiero perder.  
+            Nada más que disfrutes tu cumpleaños y que la pases bonito con toda tu familia. ❤️  
+        </p>
+    </div>
+
+    <!-- Corazones animados -->
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                document.body.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 5000);
+            }
+        }
+        setInterval(createHearts, 1000);
+
+        // Intentar reproducir el audio automáticamente
+        document.addEventListener('DOMContentLoaded', function() {
+            let audio = document.getElementById("bg-music");
+            audio.volume = 0.5; // Ajustar volumen
+            audio.muted = false; // Quitar mute
+            audio.play().catch(error => {
+                console.log("El navegador bloqueó la reproducción automática. Se necesita interacción.");
+            });
+        });
+    </script>
+</body>
+</html>
