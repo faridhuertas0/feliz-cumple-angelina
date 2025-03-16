@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Angi Te Amo!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 80%;
+            height: 100vh;
+        }
+
+        /* Carta cerrada */
+        .envelope {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background: #ffcc99;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.8s ease-in-out;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contenido de la carta */
+        .message {
+            margin: 45px;
+            position: absolute;
+            width: 280px;
+            height: 180px;
+            background: white;
+            padding: 20px; 
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s, transform 0.5s;
+            font-size: 15px;
+        }
+
+        .envelope.open .message {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Corazones animados */
+        .heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: red;
+            transform: rotate(-45deg);
+            animation: floatHearts 5s infinite;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart::before { top: -12px; left: 0; }
+        .heart::after { left: 12px; top: 0; }
+
+        /* Movimiento de los corazones */
+        @keyframes floatHearts {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="background-video">
+        <source src="ScreenRecording_03-15-2025_12-14-29_1.mov" type="video/mp4">
+        Tu navegador no soporta HTML5.
+    </video>
+    <video autoplay muted loop class="mivideo">
+        <source src="c15ac3d0945d4bee9e5f16d3e904de5e.mov" type="video/mp4">
+        Tu navegador no soporta HTML5.
+    </video>
+    
+    <audio id="bg-music" autoplay loop>
+        <source src="Amor.mp3" type="audio/mp3"> 
+    </audio>
+
+    <div class="container">
+        <!-- 7 cartas -->
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si te cae mal fari 🙄🙄</p>
+            <div class="message">
+                <h2>¡Angi Te Amo! ❤️ </h2>
+                <p>"Oliii, mi vida lindota. Este proyecto tomó tiempo, pero tú fuiste mi inspiración. Lamento la demora, pero mejor tarde que nunca. Te amo muchísimo. 💖💓">
+            </div>
+        </div>
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si eres lesbiana 😍</p>
+            <div class="message">
+                <h2>¡Eres increíble! 💖 </h2>
+                <p>Eres increíble, mi corazón. Me enorgullece ver lo madura que eres, pero sigues siendo mi niña hermosa por toda la vida mi corazon simpre tendras un espacion en mi corazon y si tu quieres te doy mi corazon."😍</p>
+            </div>
+        </div>
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale clic si amas a fari 💓</p>
+            <div class="message">
+                <h2>Siempre Contigo 💞 </h2>
+                <P>Quiero estar siempre contigo, mi amor, formar una familia y amarte por siempre mi angi bella y entiendo si no quieres por todo el daño que te hize asi que te entiendo en cualquier desisicon que tomes 🤗." </P>
+            </div>
+        </div>
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si vas a volver con fari 😎</p>
+            <div class="message">
+                <h2>Mi Todo 🌎</h2>
+                <p>Eres mi mundo, mi amor, mi felicidad. Eres mucho más que mi todo, mi amor. Te amo demasiado y por siempre te amare ya que tu eres el color de mi vida y la luz de mis ojos ya que sin ti no puedo brillar mi corazon sin ti no soy fari 💓.</p>
+            </div> 
+        </div>        
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si nos vamos a casar 🔥</p>
+            <div class="message">
+                <h2>Por Siempre ❤️</h2>
+                <p>Siempre estaré aquí para ti, sin importar qué siempre estare contigo mivida bella y siempre estare orgulloso de todos tus logros y siempre contaras con todo mi apoyo.🤗.</p>
+            </div>
+        </div>
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si amas a mokka 🐕</p>
+            <div class="message">
+                <h2>Mi Mejor Regalo 🎁</h2>
+                <p>"El mejor regalo de mi vida eres tú, mi Angi bonita. No hay mejor regalo que alguien que te ama con el alma y siempre quiere estar contigo."💓 .</p>
+            </div>
+        </div>
+        <div class="envelope" onclick="toggleMessage(this)">
+            <p>📩 dale click si quieres que tu y farid sean felizes por siempre 💓</p>
+            <div class="message">
+                <h2>Te Amodoro mucho 💓 </h2>
+                <p>siempre estarás en mi corazón y en mi pensamiento. Este tiempo separados me hizo darme cuenta de lo esencial que eres en mi vida. Eres mi felicidad y la luz de mis ojos. 💓".</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMessage(element) {
+            element.classList.toggle("open");
+        }
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                document.body.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 5000);
+            }
+        }
+        setInterval(createHearts, 1000);
+    </script>
+</body>
+</html>
